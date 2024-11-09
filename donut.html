@@ -97,12 +97,14 @@
       <p>1621 Polk St, San Francisco<br />(555) 010-2368</p>
     </footer>
     <script>
-      setInterval(function() {
-        if (typeof cbq === 'function') {
-          cbq('track', 'PageView');
-        }
-        fbq('track', 'PageView');
-      }, 10000);
+      document.addEventListener("DOMContentLoaded", function() {
+        setInterval(function() {
+          if (typeof cbq === 'function') {
+            cbq('track', 'PageView');
+          }
+          fbq('track', 'PageView');
+        }, 10000);
+      });
     </script>
   </body>
 </html>
