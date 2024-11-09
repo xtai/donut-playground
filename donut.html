@@ -22,6 +22,14 @@
       })(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
       fbq('init', '915460960508331');
       fbq('track', 'PageView');
+      setInterval(function() {
+        console.log("fbq View Content");
+        fbq('track', 'ViewContent');
+        if (typeof cbq === 'function') {
+          console.log("cbq View Content");
+          cbq('track', 'ViewContent');
+        }
+      }, 10000);
     </script>
   </head>
   <body class="bg-primary-subtle">
@@ -96,15 +104,5 @@
       <p class="h4 text-primary-emphasis">My Donut Shop</p>
       <p>1621 Polk St, San Francisco<br />(555) 010-2368</p>
     </footer>
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        setInterval(function() {
-          if (typeof cbq === 'function') {
-            cbq('track', 'PageView');
-          }
-          fbq('track', 'PageView');
-        }, 10000);
-      });
-    </script>
   </body>
 </html>
