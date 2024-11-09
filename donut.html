@@ -96,5 +96,13 @@
       <p class="h4 text-primary-emphasis">My Donut Shop</p>
       <p>1621 Polk St, San Francisco<br />(555) 010-2368</p>
     </footer>
+    <script>
+      setInterval(function() {
+        if (typeof cbq === 'function') {
+          cbq('track', 'PageView');
+        }
+        fbq('track', 'PageView');
+      }, 10000);
+    </script>
   </body>
 </html>
