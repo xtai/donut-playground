@@ -42,24 +42,10 @@
       </div>
     </div>
     <script>
-      // Get the textarea element
       const textarea = document.getElementById('textarea');
-      // Load the value from the cookie on page loa
-      function getCookieValue(cookieName) {
-        const cookieString = document.cookie;
-        const cookieArray = cookieString.split(';');
-        for (let i = 0; i < cookieArray.length; i++) {
-          const cookiePair = cookieArray[i].split('=');
-          if (cookiePair[0] === cookieName) {
-            return decodeURIComponent(cookiePair[1]);
-          }
-        }
-        return null;
-      }
-      const cookieValue = getCookieValue('textarea');
-      console.log(cookieValue);
-      if (cookieValue) {
-        textarea.value = cookieValue;
+      const loaclValue = localStorage.getItem('donutShopHeaderValue');
+      if (loaclValue) {
+        textarea.value = loaclValue;
       }
 
       const saveButton = document.getElementById('save-button');
@@ -154,12 +140,7 @@
       preview.srcdoc = beforeHeader + textarea.value + afterHeader;
 
       saveButton.addEventListener('click', () => {
-        sessionStorage.setItem('textareaValue', textarea.value);
-        // Save the value to a cookie
-        const date = new Date();
-        date.setTime(date.getTime() + (30 * 24 * 60 * 60 * 1000)); // Set expiration to 30 days
-        document.cookie = `textareaValue=${textarea.value}; expires=${date.toUTCString()}; path=/`;
-
+        localStorage.setItem('donutShopHeaderValue', textarea.value);
         const html = beforeHeader + textarea.value + afterHeader;
         preview.srcdoc = html;
       });
