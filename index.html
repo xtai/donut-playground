@@ -146,6 +146,7 @@
       saveButton.addEventListener('click', () => {
         localStorage.setItem('donutShopHeaderValue', textarea.value);
         inject.innerHTML = textarea.value;
+        const regex = /<script>(.*?)<\/script>/s;
         const match = textarea.value.match(regex);
         if (match) {
           eval(match[1]);
