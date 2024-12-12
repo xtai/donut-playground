@@ -135,20 +135,22 @@
       const loaclValue = localStorage.getItem('donutShopHeaderValue');
       const saveButton = document.getElementById('save-button');
       const inject = document.getElementById('inject');
+
+      const regex = /<script>([\s\S]*?)<\/script>/g;
+      
       if (loaclValue) {
         textarea.value = loaclValue;
         inject.innerHTML = loaclValue;
-
-        const regex = /<script>(.*?)<\/script>/s;
-        const match = loaclValue.match(regex);
-        if (match) { eval(match[1]); }
+        let match;
+        while ((match = regex.exec(loaclValue)) !== null) {
+          eval(match[1]);
+        }
       }
       saveButton.addEventListener('click', () => {
         localStorage.setItem('donutShopHeaderValue', textarea.value);
         inject.innerHTML = textarea.value;
-        const regex = /<script>(.*?)<\/script>/s;
-        const match = textarea.value.match(regex);
-        if (match) {
+        let match;
+        while ((match = regex.exec(loaclValue)) !== null) {
           eval(match[1]);
         }
         // Change button text and style
