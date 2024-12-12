@@ -16,10 +16,10 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      // fbq('init', '915460960508331');
-      // fbq('init', '239218378685341');
-      // fbq('init', '609661981086441');
-      // fbq('track', 'PageView');
+      fbq('init', '915460960508331');
+      fbq('init', '239218378685341');
+      fbq('init', '609661981086441');
+      fbq('track', 'PageView');
       setInterval(function() {
         if (typeof fbq === 'function') {
           console.log("fbq View Content");
@@ -29,7 +29,7 @@
           console.log("cbq View Content");
           cbq('track', 'ViewContent');
         }
-      }, 10000);
+      }, 30000);
     </script>
     <script id="inject">
     </script>
