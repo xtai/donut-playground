@@ -16,13 +16,15 @@
       t.src=v;s=b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t,s)}(window, document,'script',
       'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '915460960508331');
-      fbq('init', '239218378685341');
-      fbq('init', '609661981086441');
-      fbq('track', 'PageView');
+      // fbq('init', '915460960508331');
+      // fbq('init', '239218378685341');
+      // fbq('init', '609661981086441');
+      // fbq('track', 'PageView');
       setInterval(function() {
-        console.log("fbq View Content");
-        fbq('track', 'ViewContent');
+        if (typeof fbq === 'function') {
+          console.log("fbq View Content");
+          fbq('track', 'ViewContent');
+        }
         if (typeof cbq === 'function') {
           console.log("cbq View Content");
           cbq('track', 'ViewContent');
@@ -53,13 +55,16 @@
                 <label for="textarea">Add additional header code here</label>
               </div>
             </div>
-            <button type="button" class="btn btn-light" id="clear-button" onclick="textarea.value = ''; localStorage.setItem('donutShopHeaderValue', '');">Clear</button>
             <div class="pb-4">
               <code class="ps-2">&lt;/head&gt;<br /></code>
               <code class="ps-2">&lt;body&gt;<br /></code>
               <code class="ps-4">…<br /></code>
               <code class="ps-2">&lt;/body&gt;<br /></code>
               <code>&lt;/html&gt;</code>
+            </div>
+            <div class="d-flex gap-2">
+              <button type="button" class="btn btn-light" id="clear-button" onclick="textarea.value = ''; localStorage.setItem('donutShopHeaderValue', '');">Clear</button>
+              <button type="button" class="btn btn-primary flex-grow-1" id="save-button">Save</button>
             </div>
             <div class="d-grid">
               <button type="button" class="btn btn-primary" id="save-button">Save</button>
@@ -135,6 +140,7 @@
       const textarea = document.getElementById('textarea');
       const loaclValue = localStorage.getItem('donutShopHeaderValue');
       const saveButton = document.getElementById('save-button');
+      const clearButton = document.getElementById('clear-button');
       const inject = document.getElementById('inject');
 
       const regex = /<script>([\s\S]*?)<\/script>/g;
@@ -146,6 +152,10 @@
         while ((match = regex.exec(loaclValue)) !== null) {
           eval(match[1]);
         }
+      }
+      clearButton.addEventListener('click', () => {
+        localStorage.setItem('donutShopHeaderValue', '');
+        inject.innerHTML = '';
       }
       saveButton.addEventListener('click', () => {
         localStorage.setItem('donutShopHeaderValue', textarea.value);
