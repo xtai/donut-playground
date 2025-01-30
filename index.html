@@ -97,11 +97,11 @@
                     <div class="d-flex flex-column flex-grow-1">
                       <div class="flex-fill">
                         <h5>Glazed</h5>
-                        <p><b>$3.00</b></p>
+                        <p><b id="donut-1-price">$3.00</b></p>
                         <p>A fluffy ring with a glazed frosting coating. Basically, the vanilla of donuts.</p>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-primary" onclick="fbq('track', 'Purchase', {currency: 'USD', value: 3.0, content_ids: ['Glazed'], content_type: 'product'});">Order Now</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="fbq('track', 'Purchase', {currency: 'USD', value: 3.0, content_ids: ['Glazed'], content_type: 'product'});" id="donut-1">Order Now</button>
                       </div>
                     </div>
                   </div>
@@ -112,11 +112,11 @@
                     <div class="d-flex flex-column flex-grow-1">
                       <div class="flex-fill">
                         <h5>Chocolate</h5>
-                        <p><b>$3.50</b></p>
+                        <p><b id="donut-2-price">$3.50</b></p>
                         <p>It's a fluffy ring with chocolate on it. What more could you want?</p>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-primary" onclick="fbq('track', 'Purchase', {currency: 'USD', value: 3.5, content_ids: ['Chocolate'], content_type: 'product'});">Order Now</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="fbq('track', 'Purchase', {currency: 'USD', value: 3.5, content_ids: ['Chocolate'], content_type: 'product'});" id="donut-2">Order Now</button>
                       </div>
                     </div>
                   </div>
@@ -127,11 +127,11 @@
                     <div class="d-flex flex-column flex-grow-1">
                       <div class="flex-fill">
                         <h5>Sprinkles</h5>
-                        <p><b>$3.50</b></p>
+                        <p><b id="donut-3-price">$3.50</b></p>
                         <p>A traditional cake ring with chocolate or maple frosting and some character-adding sprinkles.</p>
                       </div>
                       <div>
-                        <button type="button" class="btn btn-outline-primary" onclick="fbq('track', 'Purchase', {currency: 'USD', value: 3.5, content_ids: ['Sprinkles'], content_type: 'product'});">Order Now</button>
+                        <button type="button" class="btn btn-outline-primary" onclick="fbq('track', 'Purchase', {currency: 'USD', value: 3.5, content_ids: ['Sprinkles'], content_type: 'product'});" id="donut-3">Order Now</button>
                       </div>
                     </div>
                   </div>
@@ -140,6 +140,7 @@
               <footer class="container-fulid text-center p-5" style="background-color: rgba(var(--bs-primary-rgb), .1)">
                 <p class="h4 text-primary-emphasis">My Donut Shop</p>
                 <p>1621 Polk St, San Francisco<br />(555) 010-2368</p>
+                <button type="button" class="btn btn-outline-primary" id="contact">Contact Us</button>
               </footer>
             </div>
           </div>
